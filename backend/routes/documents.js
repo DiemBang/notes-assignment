@@ -17,6 +17,26 @@ router.get("/", function (req, res) {
   });
 });
 
+/* GET specific doc */
+router.get("/:id", function (req, res) {
+
+  let id = req.params.id;
+
+  connection.connect((err) => {
+    if (err) console.log("err", err);
+
+    let query = "SELECT * FROM documents WHERE id = ?";
+    let values = [id];
+
+    connection.query(query, values, (err, data) => {
+      if (err) console.log("err", err);
+
+      console.log("specific document", data);
+      res.json(data);
+    });
+  });
+});
+
 /* CREATE new doc */
 router.post("/new", (req, res) => {
 
