@@ -32,7 +32,7 @@ router.get("/:id", function (req, res) {
       if (err) console.log("err", err);
 
       console.log("specific document", data);
-      res.json(data);
+      res.json(data[0]);
     });
   });
 });
