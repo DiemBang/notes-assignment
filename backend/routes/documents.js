@@ -62,7 +62,25 @@ router.patch("/:id", (req, res) => {
   });
 });
 
-
 /* DELETE doc */
+
+router.delete("/:id", (req, res) => {
+
+  let id = req.params.id;
+
+  connection.connect((err) => {
+    if (err) console.log("err", err);
+
+    let query = "DELETE FROM documents WHERE id = ?";
+    let values = [id];
+
+    connection.query(query, values, (err, data) => {
+      if (err) console.log("err", err);
+
+      console.log("delete document", data);
+      res.json( {message: "doc deleted"}); 
+    });
+  });
+});
 
 module.exports = router;
