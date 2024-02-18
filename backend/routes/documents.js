@@ -17,9 +17,7 @@ router.get("/", function (req, res) {
   });
 });
 
-
 /* CREATE new doc */
-
 router.post("/new", (req, res) => {
 
     let user = req.body.user;
@@ -41,6 +39,30 @@ router.post("/new", (req, res) => {
     });
 });
 
+/* EDIT doc */
+router.patch("/:id", (req, res) => {
 
+  let id = req.params.id;
+  let user = req.body.user;
+  let name = req.body.name;
+  let content = req.body.content;
+
+  connection.connect((err) => {
+    if (err) console.log("err", err);
+
+    let query = "UPDATE documents SET user = ?, name = ?, content = ? WHERE id = ?";
+    let values = [user, name, content, id];
+    
+    connection.query(query, values, (err, data) => {
+      if (err) console.log("err", err);
+
+      console.log("edit document", data);
+      res.json({message: "doc edited"});
+    });
+  });
+});
+
+
+/* DELETE doc */
 
 module.exports = router;
