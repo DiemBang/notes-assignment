@@ -1,3 +1,5 @@
+import deleteDoc from "./deleteDoc.js";
+
 let docList = document.getElementById("docList");
 let viewDoc = document.getElementById("viewDoc");
 
@@ -43,5 +45,20 @@ function printSpecificDoc(documentId) {
         docContent.id = "docContent";
         docContent.innerText = data.content;
         viewDoc.appendChild(docContent); 
+
+        let editDocBtn = document.createElement("button")
+        editDocBtn.id = "editDocBtn";
+        editDocBtn.innerText = "Edit";
+        viewDoc.appendChild(editDocBtn);
+
+        let deleteDocBtn = document.createElement("button");
+        deleteDocBtn.id = "deleteDocBtn";
+        deleteDocBtn.innerText = "Delete";
+        viewDoc.appendChild(deleteDocBtn);
+
+        deleteDocBtn.addEventListener("click", () => {
+            deleteDoc(data.id); 
+            viewDoc.innerHTML = "";
+        });
     });  
 };

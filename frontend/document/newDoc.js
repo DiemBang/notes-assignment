@@ -1,4 +1,4 @@
-export default function createDoc() {
+export default function newDoc() {
     fetch("http://localhost:3000/documents/new")
     .then(res => res.json())
     .then(data => {
