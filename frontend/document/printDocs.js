@@ -22,7 +22,7 @@ function printDocs() {
             li.addEventListener("click", () => {
                 console.log("click");
                 printSpecificDoc(doc.id);
-            })
+            });
         });
     });
 };
@@ -55,7 +55,7 @@ function printSpecificDoc(documentId) {
         editDocBtn.addEventListener("click", () => {
             editDoc(data.id, data.content);
             viewDoc.removeChild(docContent);
-        })
+        });
 
         let deleteDocBtn = document.createElement("button");
         deleteDocBtn.id = "deleteDocBtn";

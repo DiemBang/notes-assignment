@@ -21,7 +21,7 @@ function saveEdits(documentId) {
       savedMessage.appendChild(savedConfirmationMessage);
       printSpecificDoc(documentId);
     });
-}
+};
 
 function editDoc(documentID, docContent) {
   console.log("editing doc");
@@ -45,6 +45,6 @@ function editDoc(documentID, docContent) {
     console.log("edits saved");
     saveEdits(documentID);
   });
-}
+};
 
 export { saveEdits, editDoc };
