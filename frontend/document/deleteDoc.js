@@ -1,4 +1,4 @@
-import printDocs from "./printDocs.js";
+import { printDocs } from "./printDocs.js";
 
 export default function deleteDoc(documentId) {
     console.log("delete doc", documentId);

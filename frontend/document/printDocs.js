@@ -1,10 +1,11 @@
 import deleteDoc from "./deleteDoc.js";
+import { editDoc } from "./editDoc.js";
 
 let docList = document.getElementById("docList");
 let viewDoc = document.getElementById("viewDoc");
 
 
-export default function printDocs() {
+function printDocs() {
     fetch("http://localhost:3000/documents")
     .then(res => res.json())
     .then(data => {
@@ -51,6 +52,11 @@ function printSpecificDoc(documentId) {
         editDocBtn.innerText = "Edit";
         viewDoc.appendChild(editDocBtn);
 
+        editDocBtn.addEventListener("click", () => {
+            editDoc(data.id, data.content);
+            viewDoc.removeChild(docContent);
+        })
+
         let deleteDocBtn = document.createElement("button");
         deleteDocBtn.id = "deleteDocBtn";
         deleteDocBtn.innerText = "Delete";
@@ -62,3 +68,5 @@ function printSpecificDoc(documentId) {
         });
     });  
 };
+
+export { printDocs, printSpecificDoc };
