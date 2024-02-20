@@ -12,10 +12,10 @@ function showNewTextAreaAndSaveButton() {
   let newDocTextArea = document.getElementById("newDocTextArea");
 
   newDocTextArea.innerHTML = `
-    <div>Title</div>
-    <input type="text" id="newDocTitle"><br>
-    <textarea id="newDocContent"></textarea>
-    `;
+  <div>Title</div>
+  <input type="text" id="newDocTitle"><br>
+  <textarea id="newDocContent"></textarea>
+  `;
 
   let saveBtn = document.createElement("button");
   saveBtn.id = "saveBtn";
@@ -34,7 +34,7 @@ export default function createNewDoc() {
   let saveDoc = {
     name: newDocTitle.value,
     content: newDocContent.value,
-    user: 1
+    user: 1,
   };
 
   fetch("http://localhost:3000/documents/new", {

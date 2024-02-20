@@ -74,16 +74,23 @@ router.post("/login", function(req, res) {
     let query = "SELECT * FROM users WHERE username = ?";
     let values = [checkUserName];
 
+    console.log("checkUserName", checkUserName);
+
     connection.query(query, values, (err, data) => {
       if (err) console.log("err", err);
 
       console.log("specific user", data);
-
-      if (checkPassword === data[0].password) {
-        res.json(data[0]);
+      if (data[0] !== undefined) {
+        if (checkPassword === data[0].password) {
+          res.json(data[0]);
+        } else {
+          res.status(401).json({ message: "Incorrect login details"});
+        }   
       } else {
-        res.status(401).json({ message: "Incorrect login details"});
-      }   
+        res.status(401).json({ message: "Incorrect username"});
+      }
+
+      
     });
   });
 });
