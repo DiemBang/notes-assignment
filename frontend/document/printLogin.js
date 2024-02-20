@@ -1,7 +1,9 @@
+import { printDocs } from "./printDocs.js";
+import { showCreateNewDocBtn, showNewTextAreaAndSaveButton } from "./newDoc.js";
+
 let loginForm = document.getElementById("loginForm");
-let inputUsername = document.getElementById("inputUsername");
-let inputPassword = document.getElementById("inputPassword");
-let loginBtn = document.getElementById("loginBtn");
+let newDoc = document.getElementById("newDoc");
+let docList = document.getElementById("docList");
 
 function printLoginForm() {
     loginForm.innerHTML = "";
@@ -29,7 +31,7 @@ function printLoginForm() {
   
           if (data.username) {
               localStorage.setItem("user", data.username);
-              printLogoutBtn();
+              handleUserLoggedIn();
           } else {
               alert("Fel inlogg");
           }
@@ -39,6 +41,18 @@ function printLoginForm() {
     loginForm.append(inputUsername, inputPassword, loginBtn);
 };
 
+function handleUserLoggedIn() {
+    printLogoutBtn();
+    printDocs(); // temporary, swap for print docs for specific user
+    showCreateNewDocBtn();
+};
+
+function handleUserLoggedOut() {
+    newDoc.innerHTML = "";
+    docList.innerHTML = "";
+    printLoginForm();
+}
+
 function printLogoutBtn() {
     loginForm.innerHTML = "";
 
@@ -47,7 +61,7 @@ function printLogoutBtn() {
 
     logoutBtn.addEventListener("click", () => {
         localStorage.removeItem("user");
-        printLoginForm();
+        handleUserLoggedOut();
     })
 
     loginForm.appendChild(logoutBtn);
@@ -55,4 +69,4 @@ function printLogoutBtn() {
 };
 
 
-export { printLoginForm, printLogoutBtn };
+export { printLoginForm, printLogoutBtn, handleUserLoggedIn };

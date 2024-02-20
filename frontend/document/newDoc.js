@@ -4,13 +4,17 @@ let newDoc = document.getElementById("newDoc");
 let saveNewDocBtn = document.getElementById("saveNewDocBtn");
 let newDocTextArea = document.getElementById("newDocTextArea");
 
-newDoc.addEventListener("click", () => {
-  console.log("click");
-  showNewTextAreaAndSaveButton();
-});
+function showCreateNewDocBtn() {
+  newDoc.innerText = "Create new doc";
+  
+  newDoc.addEventListener("click", () => {
+    console.log("click");
+    showNewTextAreaAndSaveButton();
+  });
+}
 
 function showNewTextAreaAndSaveButton() {
-  
+
   newDocTextArea.innerHTML = `
   <div>Title</div>
   <input type="text" id="newDocTitle"><br>
@@ -27,7 +31,7 @@ function showNewTextAreaAndSaveButton() {
   });
 }
 
-export default function createNewDoc() {
+function createNewDoc() {
   let newDocTitle = document.getElementById("newDocTitle");
   let newDocContent = document.getElementById("newDocContent");
 
@@ -55,3 +59,5 @@ export default function createNewDoc() {
 function removeNewTextArea() {
   newDocTextArea.innerHTML = "";
 }
+
+export { showNewTextAreaAndSaveButton, createNewDoc, showCreateNewDocBtn };
