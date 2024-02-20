@@ -51,7 +51,7 @@ function handleUserLoggedOut() {
     newDoc.innerHTML = "";
     docList.innerHTML = "";
     printLoginForm();
-}
+};
 
 function printLogoutBtn() {
     loginForm.innerHTML = "";
