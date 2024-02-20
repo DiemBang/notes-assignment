@@ -21,7 +21,7 @@ Alla CRUD operationer skall användas. Create, Read, Update, Delete.
 
 Det skall gå att skapa nya användare som kan skapa sina egna dokument. Och enbart se sina skapade dokument.
 Det skall finnas en WYSIWYG editorn där det går att ändra både textfärg och bakgrundsfärg i editorn, samt att det skall gå att spara. 
-Du skall även bifoga ett enklare dokument som visar hur databasen och dess relationer är konstruerat. 
+Du skall även bifoga ett enklare dokument som visar hur databasen och dess relationer är konstruerat. KOLLA INSPELNINGSVIDEO: UTDELNING INLÄMNINGSUPPGIFT
  
 
 **Inlämning**
