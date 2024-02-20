@@ -23,6 +23,7 @@ router.get('/', function(req, res) {
 router.get("/:id/", function(req, res) {
 
   let id = req.params.id;
+
   connection.connect((err) => {
     if (err) console.log("err", err);
 
@@ -61,6 +62,30 @@ router.post("/", function(req, res) {
   });
 });
 
-/* Login users POST */
+/* Login user */
+router.post("/login", function(req, res) {
+
+  let checkUserName = req.body.username;
+  let checkPassword = req.body.password;
+  
+  connection.connect((err) => {
+    if (err) console.log("err", err);
+
+    let query = "SELECT * FROM users WHERE username = ?";
+    let values = [checkUserName];
+
+    connection.query(query, values, (err, data) => {
+      if (err) console.log("err", err);
+
+      console.log("specific user", data);
+
+      if (checkPassword === data[0].password) {
+        res.json(data[0]);
+      } else {
+        res.status(401).json({ message: "Incorrect login details"});
+      }   
+    });
+  });
+});
 
 module.exports = router;
