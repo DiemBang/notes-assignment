@@ -2,6 +2,7 @@ import { printDocs } from "./printDocs.js";
 
 let newDoc = document.getElementById("newDoc");
 let saveNewDocBtn = document.getElementById("saveNewDocBtn");
+let newDocTextArea = document.getElementById("newDocTextArea");
 
 newDoc.addEventListener("click", () => {
   console.log("click");
@@ -9,8 +10,7 @@ newDoc.addEventListener("click", () => {
 });
 
 function showNewTextAreaAndSaveButton() {
-  let newDocTextArea = document.getElementById("newDocTextArea");
-
+  
   newDocTextArea.innerHTML = `
   <div>Title</div>
   <input type="text" id="newDocTitle"><br>
@@ -48,5 +48,10 @@ export default function createNewDoc() {
     .then((data) => {
       console.log("new doc", data);
       printDocs();
+      removeNewTextArea();
     });
+}
+
+function removeNewTextArea() {
+  newDocTextArea.innerHTML = "";
 }
