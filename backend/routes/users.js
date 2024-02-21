@@ -82,15 +82,13 @@ router.post("/login", function(req, res) {
       console.log("specific user", data);
       if (data[0] !== undefined) {
         if (checkPassword === data[0].password) {
-          res.json(data[0]);
+          res.json({ id: data[0].id, name: data[0].name, username: data[0].username});
         } else {
           res.status(401).json({ message: "Incorrect login details"});
         }   
       } else {
         res.status(401).json({ message: "Incorrect username"});
-      }
-
-      
+      }      
     });
   });
 });

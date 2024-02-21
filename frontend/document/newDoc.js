@@ -38,7 +38,7 @@ function createNewDoc() {
   let saveDoc = {
     name: newDocTitle.value,
     content: newDocContent.value,
-    user: 1,
+    user: localStorage.getItem("user"),
   };
 
   fetch("http://localhost:3000/documents/new", {

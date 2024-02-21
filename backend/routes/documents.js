@@ -17,6 +17,30 @@ router.get("/", function (req, res) {
   });
 });
 
+/* GET docs for specific user */
+router.get("/user/", function (req, res) {
+  let userId = req.body.user;
+  
+  // TODO: implement token
+  // let userToken = req.body.token;
+
+  // GET specific user
+  connection.connect((err) => {
+    if (err) console.log("err", err);
+
+    let query = "SELECT * FROM documents WHERE user = ?"; 
+
+    let value = [userId];
+
+    connection.query(query, value, (err,data) => {
+      if (err) console.log("err", err);
+
+      console.log("docs for specific user", data);
+      res.json(data);
+    });
+  });
+}); 
+
 /* GET specific doc */
 router.get("/:id", function (req, res) {
 
@@ -32,6 +56,9 @@ router.get("/:id", function (req, res) {
       if (err) console.log("err", err);
 
       console.log("specific document", data);
+      // return first item/object in the list, since we know the query
+      // should only return one result and we do not want to return
+      // a list
       res.json(data[0]);
     });
   });

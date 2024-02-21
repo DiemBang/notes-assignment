@@ -29,8 +29,8 @@ function printLoginForm() {
       .then(data => {
           console.log("post user", data);
   
-          if (data.username) {
-              localStorage.setItem("user", data.username);
+          if (data.id) {
+              localStorage.setItem("user", data.id);
               handleUserLoggedIn();
           } else {
               alert("Fel inlogg");
