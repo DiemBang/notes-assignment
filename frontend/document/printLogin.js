@@ -4,6 +4,7 @@ import { showCreateNewDocBtn, showNewTextAreaAndSaveButton } from "./newDoc.js";
 let loginForm = document.getElementById("loginForm");
 let newDoc = document.getElementById("newDoc");
 let docList = document.getElementById("docList");
+let myDocs = document.getElementById("myDocs");
 
 function printLoginForm() {
     loginForm.innerHTML = "";
@@ -13,7 +14,12 @@ function printLoginForm() {
     inputPassword.placeholder = "Password";
     inputPassword.type = "password";
     let loginBtn = document.createElement("button");
+    loginBtn.id = "loginBtn";
     loginBtn.innerText = "Log in";
+    let signUp = document.createElement("div");
+    signUp.innerText = "Don't have an account yet?";
+    let signUpLink = document.createElement("div");
+    signUpLink.innerText = "Sign up now.";
   
     loginBtn.addEventListener("click", () => {
       let sendUser = { username: inputUsername.value, password: inputPassword.value };
@@ -37,20 +43,23 @@ function printLoginForm() {
           }
       })
     });
+
+    //add event listener to sign up now link
   
-    loginForm.append(inputUsername, inputPassword, loginBtn);
+    loginForm.append(inputUsername, inputPassword, loginBtn, signUp, signUpLink);
 };
 
 function handleUserLoggedIn() {
     printLogoutBtn();
     printDocs(); // temporary, swap for print docs for specific user
-    showCreateNewDocBtn();
+    showCreateNewDocBtn();    
 };
 
 function handleUserLoggedOut() {
     newDoc.innerHTML = "";
     docList.innerHTML = "";
     printLoginForm();
+    myDocs.innerHTML = "";
 };
 
 function printLogoutBtn() {
@@ -69,4 +78,4 @@ function printLogoutBtn() {
 };
 
 
-export { printLoginForm, printLogoutBtn, handleUserLoggedIn };
+export { printLoginForm, printLogoutBtn, handleUserLoggedIn, handleUserLoggedOut };

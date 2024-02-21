@@ -18,11 +18,12 @@ router.get("/", function (req, res) {
 });
 
 /* GET docs for specific user */
-router.get("/user/", function (req, res) {
+router.post("/user/", function (req, res) {
   let userId = req.body.user;
   
   // TODO: implement token
   // let userToken = req.body.token;
+  console.log("Getting specific documents for user", userId);
 
   // GET specific user
   connection.connect((err) => {

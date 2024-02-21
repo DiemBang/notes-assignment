@@ -1,4 +1,4 @@
-import { printLoginForm, handleUserLoggedIn } from "./document/printLogin.js";
+import { printLoginForm, handleUserLoggedIn, handleUserLoggedOut } from "./document/printLogin.js";
 
 
 //Init functions
@@ -7,6 +7,6 @@ if (localStorage.getItem("user")) {
     handleUserLoggedIn();
   } else {
     // NOT LOGGED IN
-    printLoginForm();
+    handleUserLoggedOut();
 };
 
