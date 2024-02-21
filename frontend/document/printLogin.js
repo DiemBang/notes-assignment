@@ -5,6 +5,8 @@ let loginForm = document.getElementById("loginForm");
 let newDoc = document.getElementById("newDoc");
 let docList = document.getElementById("docList");
 let myDocs = document.getElementById("myDocs");
+let newDocTextArea = document.getElementById("newDocTextArea");
+let viewDoc = document.getElementById("viewDoc");
 
 function printLoginForm() {
     loginForm.innerHTML = "";
@@ -60,6 +62,8 @@ function handleUserLoggedOut() {
     docList.innerHTML = "";
     printLoginForm();
     myDocs.innerHTML = "";
+    newDocTextArea.innerHTML = "";
+    viewDoc.innerHTML = "";
 };
 
 function printLogoutBtn() {
