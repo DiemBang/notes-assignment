@@ -24,6 +24,7 @@ function saveEdits(sendUpdatedDoc) {
       savedConfirmationMessage.innerText = "Your changes have been saved";
       savedMessage.appendChild(savedConfirmationMessage);
       printSpecificDoc(sendUpdatedDoc.id);
+      
     });
 };
 
@@ -52,6 +53,7 @@ function editDoc(doc) {
       content: textArea.value
     }
     saveEdits(sendUpdatedDoc);
+    savedMessage.innerHTML = "";
   });
 };
 
