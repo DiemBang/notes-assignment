@@ -5,6 +5,7 @@ let docList = document.getElementById("docList");
 let viewDoc = document.getElementById("viewDoc");
 let myDocs = document.getElementById("myDocs");
 let newDocTextArea = document.getElementById("newDocTextArea");
+let savedMessage = document.getElementById("savedMessage");
 
 function printDocs() {
   let sendUser = { user: localStorage.getItem("user") };
@@ -33,6 +34,7 @@ function printDocs() {
           console.log("click");
           printSpecificDoc(doc.id);
           newDocTextArea.innerHTML = "";
+          savedMessage.innerHTML = "";
         });
       });
     });

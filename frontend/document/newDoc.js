@@ -4,6 +4,7 @@ let newDoc = document.getElementById("newDoc");
 let saveNewDocBtn = document.getElementById("saveNewDocBtn");
 let newDocTextArea = document.getElementById("newDocTextArea");
 let viewDoc = document.getElementById("viewDoc");
+let savedMessage = document.getElementById("savedMessage");
 
 function showCreateNewDocBtn() {
   newDoc.innerText = "Create new doc";
@@ -12,6 +13,7 @@ function showCreateNewDocBtn() {
     console.log("click");
     showNewTextAreaAndSaveButton();
     viewDoc.innerHTML = "";
+    savedMessage.innerHTML = "";
   });
 }
 
