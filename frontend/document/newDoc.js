@@ -7,7 +7,7 @@ let viewDoc = document.getElementById("viewDoc");
 
 function showCreateNewDocBtn() {
   newDoc.innerText = "Create new doc";
-  
+
   newDoc.addEventListener("click", () => {
     console.log("click");
     showNewTextAreaAndSaveButton();
@@ -16,12 +16,24 @@ function showCreateNewDocBtn() {
 }
 
 function showNewTextAreaAndSaveButton() {
-
   newDocTextArea.innerHTML = `
   <div>Title</div>
   <input type="text" id="newDocTitle"><br>
   <textarea id="newDocContent"></textarea>
   `;
+
+  tinymce.init({
+    selector: "textarea#newDocContent",
+    plugins: "code",
+    toolbar:
+      "undo redo | forecolor backcolor | styleselect bold italic | alignleft aligncenter alignright | code",
+
+    setup: function (editor) {
+      editor.on("change", function () {
+        editor.save();
+      });
+    },
+  });
 
   let saveBtn = document.createElement("button");
   saveBtn.id = "saveBtn";
@@ -46,7 +58,7 @@ function createNewDoc() {
   fetch("http://localhost:3000/documents/new", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(saveDoc),
   })

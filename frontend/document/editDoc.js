@@ -1,6 +1,5 @@
 import { printDocs, printSpecificDoc } from "./printDocs.js";
 
-
 let viewDoc = document.getElementById("viewDoc");
 let savedMessage = document.getElementById("savedMessage");
 
@@ -12,9 +11,9 @@ function saveEdits(sendUpdatedDoc) {
   fetch("http://localhost:3000/documents/" + sendUpdatedDoc.id, {
     method: "PATCH",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(sendUpdatedDoc)
+    body: JSON.stringify(sendUpdatedDoc),
   })
     .then((res) => res.json())
     .then((data) => {
@@ -25,9 +24,8 @@ function saveEdits(sendUpdatedDoc) {
       savedConfirmationMessage.innerText = "Your changes have been saved";
       savedMessage.appendChild(savedConfirmationMessage);
       printSpecificDoc(sendUpdatedDoc.id);
-      
     });
-};
+}
 
 function editDoc(doc) {
   console.log("editing doc");
@@ -40,18 +38,19 @@ function editDoc(doc) {
   tinymce.init({
     selector: "textarea#editTextContent",
     plugins: "code",
-    toolbar: "undo redo | forecolor backcolor | styleselect bold italic | alignleft aligncenter alignright | code",
+    toolbar:
+      "undo redo | forecolor backcolor | styleselect bold italic | alignleft aligncenter alignright | code",
 
     setup: function (editor) {
-      editor.on("change", function() {
+      editor.on("change", function () {
         editor.save();
-      })
-    }
-  });  
+      });
+    },
+  });
 
   // Add save edits button
   let saveChangesBtn = document.createElement("button");
-    saveChangesBtn.id = "saveChangesBtn";
+  saveChangesBtn.id = "saveChangesBtn";
   saveChangesBtn.innerText = "Save edits";
   viewDoc.appendChild(saveChangesBtn);
   viewDoc.removeChild(deleteDocBtn);
@@ -64,11 +63,11 @@ function editDoc(doc) {
       id: doc.id,
       user: doc.user,
       name: doc.name,
-      content: textArea.value
-    }
+      content: textArea.value,
+    };
     saveEdits(sendUpdatedDoc);
     savedMessage.innerHTML = "";
   });
-};
+}
 
 export { saveEdits, editDoc };
