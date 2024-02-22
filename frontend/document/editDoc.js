@@ -3,13 +3,17 @@ import { printDocs, printSpecificDoc } from "./printDocs.js";
 let viewDoc = document.getElementById("viewDoc");
 let savedMessage = document.getElementById("savedMessage");
 
-function saveEdits(documentId) {
+function saveEdits(sendUpdatedDoc) {
   console.log("saveEdits");
 
-  console.log("edit doc", documentId);
+  console.log("edit doc", sendUpdatedDoc.id);
 
-  fetch("http://localhost:3000/documents/" + documentId, {
+  fetch("http://localhost:3000/documents/" + sendUpdatedDoc.id, {
     method: "PATCH",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(sendUpdatedDoc)
   })
     .then((res) => res.json())
     .then((data) => {
@@ -19,23 +23,20 @@ function saveEdits(documentId) {
       savedConfirmationMessage.id = "savedConfirmationMessage";
       savedConfirmationMessage.innerText = "Your changes have been saved";
       savedMessage.appendChild(savedConfirmationMessage);
-      printSpecificDoc(documentId);
+      printSpecificDoc(sendUpdatedDoc.id);
     });
 };
 
-function editDoc(documentID, docContent) {
+function editDoc(doc) {
   console.log("editing doc");
   // Add edit view
   let textArea = document.createElement("textarea");
-  textArea.innerText = docContent;
+  textArea.id = "editTextContent";
+  textArea.innerText = doc.content;
   viewDoc.appendChild(textArea);
   // Add save edits button
   let saveChangesBtn = document.createElement("button");
-  saveChangesBtn.addEventListener("click", () => {
-    console.log("edits saved");
-  });
-
-  saveChangesBtn.id = "saveChangesBtn";
+    saveChangesBtn.id = "saveChangesBtn";
   saveChangesBtn.innerText = "Save edits";
   viewDoc.appendChild(saveChangesBtn);
   viewDoc.removeChild(deleteDocBtn);
@@ -43,8 +44,19 @@ function editDoc(documentID, docContent) {
 
   saveChangesBtn.addEventListener("click", () => {
     console.log("edits saved");
-    saveEdits(documentID);
+
+    let sendUpdatedDoc = {
+      id: doc.id,
+      user: doc.user,
+      name: doc.name,
+      content: textArea.value
+    }
+    saveEdits(sendUpdatedDoc);
   });
 };
+
+tinymce.init({
+  selector: "#editTextContent"
+})
 
 export { saveEdits, editDoc };

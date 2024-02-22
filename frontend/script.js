@@ -1,6 +1,5 @@
 import { printLoginForm, handleUserLoggedIn, handleUserLoggedOut } from "./document/printLogin.js";
 
-
 //Init functions
 if (localStorage.getItem("user")) {
     // LOGGED IN
@@ -9,4 +8,6 @@ if (localStorage.getItem("user")) {
     // NOT LOGGED IN
     handleUserLoggedOut();
 };
+
+
 

@@ -61,7 +61,7 @@ function printSpecificDoc(documentId) {
       viewDoc.appendChild(editDocBtn);
 
       editDocBtn.addEventListener("click", () => {
-        editDoc(data.id, data.content);
+        editDoc(data);
         viewDoc.removeChild(docContent);
       });
 

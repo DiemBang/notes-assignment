@@ -56,7 +56,7 @@ router.get("/:id", function (req, res) {
     connection.query(query, values, (err, data) => {
       if (err) console.log("err", err);
 
-      console.log("specific document", data);
+      console.log("GET specific document", data);
       // return first item/object in the list, since we know the query
       // should only return one result and we do not want to return
       // a list
