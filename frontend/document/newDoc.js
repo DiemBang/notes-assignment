@@ -3,6 +3,7 @@ import { printDocs } from "./printDocs.js";
 let newDoc = document.getElementById("newDoc");
 let saveNewDocBtn = document.getElementById("saveNewDocBtn");
 let newDocTextArea = document.getElementById("newDocTextArea");
+let viewDoc = document.getElementById("viewDoc");
 
 function showCreateNewDocBtn() {
   newDoc.innerText = "Create new doc";
@@ -10,6 +11,7 @@ function showCreateNewDocBtn() {
   newDoc.addEventListener("click", () => {
     console.log("click");
     showNewTextAreaAndSaveButton();
+    viewDoc.innerHTML = "";
   });
 }
 

@@ -1,5 +1,6 @@
 import { printDocs, printSpecificDoc } from "./printDocs.js";
 
+
 let viewDoc = document.getElementById("viewDoc");
 let savedMessage = document.getElementById("savedMessage");
 
@@ -35,6 +36,19 @@ function editDoc(doc) {
   textArea.id = "editTextContent";
   textArea.innerText = doc.content;
   viewDoc.appendChild(textArea);
+
+  tinymce.init({
+    selector: "textarea#editTextContent",
+    plugins: "code",
+    toolbar: "undo redo | forecolor backcolor | styleselect bold italic | alignleft aligncenter alignright | code",
+
+    setup: function (editor) {
+      editor.on("change", function() {
+        editor.save();
+      })
+    }
+  });  
+
   // Add save edits button
   let saveChangesBtn = document.createElement("button");
     saveChangesBtn.id = "saveChangesBtn";
@@ -56,9 +70,5 @@ function editDoc(doc) {
     savedMessage.innerHTML = "";
   });
 };
-
-tinymce.init({
-  selector: "#editTextContent"
-})
 
 export { saveEdits, editDoc };

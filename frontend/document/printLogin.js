@@ -53,6 +53,7 @@ function printLoginForm() {
 
   signUpLink.addEventListener("click", () => {
     printSignUpFormAndCreateNewUserBtn();
+    //loginForm.innerHTML = "";
   });
 
   loginForm.append(
@@ -65,7 +66,7 @@ function printLoginForm() {
 }
 
 function printSignUpFormAndCreateNewUserBtn() {
-    console.log("printSignUpFormAndCreateNewUserBtn");
+  console.log("printSignUpFormAndCreateNewUserBtn");
   signUpForm.innerHTML = "";
 
   let inputName = document.createElement("input");

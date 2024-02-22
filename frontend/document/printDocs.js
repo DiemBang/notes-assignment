@@ -4,6 +4,7 @@ import { editDoc } from "./editDoc.js";
 let docList = document.getElementById("docList");
 let viewDoc = document.getElementById("viewDoc");
 let myDocs = document.getElementById("myDocs");
+let newDocTextArea = document.getElementById("newDocTextArea");
 
 function printDocs() {
   let sendUser = { user: localStorage.getItem("user") };
@@ -31,6 +32,7 @@ function printDocs() {
         li.addEventListener("click", () => {
           console.log("click");
           printSpecificDoc(doc.id);
+          newDocTextArea.innerHTML = "";
         });
       });
     });
@@ -52,7 +54,7 @@ function printSpecificDoc(documentId) {
 
       let docContent = document.createElement("div");
       docContent.id = "docContent";
-      docContent.innerText = data.content;
+      docContent.innerHTML = data.content;
       viewDoc.appendChild(docContent);
 
       let editDocBtn = document.createElement("button");
