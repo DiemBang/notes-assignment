@@ -8,21 +8,27 @@ let myDocs = document.getElementById("myDocs");
 let newDocTextArea = document.getElementById("newDocTextArea");
 let viewDoc = document.getElementById("viewDoc");
 let signUpForm = document.getElementById("signUpForm");
-let signUpLink = document.getElementById("signUpLink");
+let header = document.getElementById("header");
 
 function printLoginForm() {
   loginForm.innerHTML = "";
   let inputUsername = document.createElement("input");
+  inputUsername.className = "form-input";
+  inputUsername.id = "txt-input";
   inputUsername.placeholder = "Username";
   let inputPassword = document.createElement("input");
+  inputPassword.className = "form-input";
+  inputPassword.id = "txt-input";
   inputPassword.placeholder = "Password";
   inputPassword.type = "password";
   let loginBtn = document.createElement("button");
-  loginBtn.id = "loginBtn";
+  loginBtn.className = "log-in";
+  loginBtn.id = "txt-input";
   loginBtn.innerText = "Log in";
   let signUpText = document.createElement("div");
   signUpText.innerText = "Don't have an account yet?";
   let signUpLink = document.createElement("div");
+  signUpLink.id = "signUpLink";
   signUpLink.innerText = "Sign up now.";
 
   loginBtn.addEventListener("click", () => {
@@ -70,12 +76,15 @@ function printSignUpFormAndCreateNewUserBtn() {
   signUpForm.innerHTML = "";
 
   let inputName = document.createElement("input");
+  inputName.className = "form-input";
   inputName.placeholder = "Name";
 
   let inputUsername = document.createElement("input");
+  inputUsername.className = "form-input";
   inputUsername.placeholder = "Username";
 
   let inputPassword = document.createElement("input");
+  inputPassword.className = "form-input";
   inputPassword.placeholder = "Password";
   inputPassword.type = "password";
 
@@ -120,6 +129,7 @@ function handleUserLoggedIn() {
   printDocs();
   showCreateNewDocBtn();
   signUpForm.innerHTML = "";
+  header.innerHTML = "";
 }
 
 function handleUserLoggedOut() {
@@ -129,12 +139,20 @@ function handleUserLoggedOut() {
   myDocs.innerHTML = "";
   newDocTextArea.innerHTML = "";
   viewDoc.innerHTML = "";
+  header.innerHTML = `
+  <header class="head-form">
+              <h2>Log In</h2>
+              <!--     A welcome message or an explanation of the login form -->
+              <p>login here using your username and password</p>
+            </header>
+  `;
 };
 
 function printLogoutBtn() {
   loginForm.innerHTML = "";
 
   let logoutBtn = document.createElement("button");
+  logoutBtn.id = "logoutBtn";
   logoutBtn.innerText = "Log out";
 
   logoutBtn.addEventListener("click", () => {

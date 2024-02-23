@@ -1,7 +1,6 @@
 import { printDocs } from "./printDocs.js";
 
 let newDoc = document.getElementById("newDoc");
-let saveNewDocBtn = document.getElementById("saveNewDocBtn");
 let newDocTextArea = document.getElementById("newDocTextArea");
 let viewDoc = document.getElementById("viewDoc");
 let savedMessage = document.getElementById("savedMessage");
