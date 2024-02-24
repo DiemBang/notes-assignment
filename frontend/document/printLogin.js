@@ -14,16 +14,13 @@ function printLoginForm() {
   loginForm.innerHTML = "";
   let inputUsername = document.createElement("input");
   inputUsername.className = "form-input";
-  inputUsername.id = "txt-input";
   inputUsername.placeholder = "Username";
   let inputPassword = document.createElement("input");
   inputPassword.className = "form-input";
-  inputPassword.id = "txt-input";
   inputPassword.placeholder = "Password";
   inputPassword.type = "password";
   let loginBtn = document.createElement("button");
   loginBtn.className = "log-in";
-  loginBtn.id = "txt-input";
   loginBtn.innerText = "Log in";
   let signUpText = document.createElement("div");
   signUpText.innerText = "Don't have an account yet?";
