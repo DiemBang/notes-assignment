@@ -57,7 +57,7 @@ router.post("/", function(req, res) {
       if (err) console.log("err", err);
 
       console.log("new user", data);
-      res.json({message: "new user created"});
+      res.json({message: "new user created", id: data.insertId});
     });
   });
 });

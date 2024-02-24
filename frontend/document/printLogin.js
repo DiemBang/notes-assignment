@@ -59,7 +59,6 @@ function printLoginForm() {
 
   signUpLink.addEventListener("click", () => {
     printSignUpFormAndCreateNewUserBtn();
-    //loginForm.innerHTML = "";
   });
 
   loginForm.append(
