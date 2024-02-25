@@ -2,7 +2,7 @@
 
 This project is a school assignment in the course API Development, aimed at implementing a comprehensive solution for managing documents.
 
-## Tech stack
+## Tech Stack
 - **Frontend:** HTML5, CSS, JavaScript
 - **Backend:** Express.js
 - **Database:** MySQL
