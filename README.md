@@ -1,34 +1,47 @@
-**Inlämningsuppgift: Notes**
+# Document Management System
 
-Vi bygger ett dokumenthanteringssystem med en relationsdatabas!
+This project is a school assignment in the course API Development, aimed at implementing a comprehensive solution for managing documents.
 
-**Bakgrund**
+## Tech stack
+- **Frontend:** HTML5, CSS, JavaScript
+- **Backend:** Express.js
+- **Database:** MySQL
+- **Text Editor:** WYSIWYG TinyMCE
 
-Du har fått en kund som vill bygga ett eget system för att skapa digitala dokument och önskar att se en demo på detta.
-Kunden vill kunna logga in på sitt system, där se en lista på alla skapade dokument, kunna skapa nya och redigera de som redan finns där. Samt ta bort ett dokument. När kunden tittar på ett skapat dokument så skall det finnas möjlighet att se dokumentet både “live” dvs utan redigeringsläget samt att se dokumentet i redigeringsläge.
+## Project Overview
+The Document Management System allows users to create, edit, view, and delete documents efficiently. It consists of two main components:
 
-**G krav**
+**Backend:** Built with Express.js, the backend handles API routes, database interactions, and user authentication. Documents are stored in a MySQL database.
 
-Det skall finnas en inloggning, men nivån på säkerhet för prototyp bestämmer du själv (dokumentera hur du har valt att göra). 
-Dokument skall skapas och sparas i en MySql databas.
-Projektet skall utformas som en headless applikation, dvs med ett frontend projekt och ett API.
-För dokument skall det finnas en enkel redigering, där det går att skriva och ändra text. 
-Ett dokument skall kunna visas i både redigerings och “vanligt” läge.
-Förutom dessa tekniska krav är resten utav arkitekturen upp till dig. 
-Alla CRUD operationer skall användas. Create, Read, Update, Delete.
+**Frontend:** The frontend interface, developed using HTML, CSS, and JavaScript, provides users with an intuitive platform to interact with the document management system. WYSIWYG TinyMCE editor is integrated for rich text editing capabilities.
 
-**VG Krav**
+## Project Structure
 
-Det skall gå att skapa nya användare som kan skapa sina egna dokument. Och enbart se sina skapade dokument. KOLLA INSPELNINGSVIDEO PÅ SLUTET 19 FEB
-Det skall finnas en WYSIWYG editorn där det går att ändra både textfärg och bakgrundsfärg i editorn, samt att det skall gå att spara. 
-Du skall även bifoga ett enklare dokument som visar hur databasen och dess relationer är konstruerat. KOLLA INSPELNINGSVIDEO PÅ SLUTET: UTDELNING INLÄMNINGSUPPGIFT
- 
+The project is organized into two main folders:
 
-**Inlämning**
+**backend:** Contains the backend implementation with Express.js.
 
-Projektet skall genomföras enligt headless principen men skapa strukturen för projektet i ett repo. Dvs i rooten kommer du ha en mapp som heter tex “frontend” och en mapp som heter “backend”. Dokumentera i readme.md hur projektet startas och är uppbyggt.
+**frontend:** Includes the frontend implementation with HTML, CSS, and JavaScript.
 
-Skicka in länken till ert repo.
+## Installation and Setup
+To run the Document Management System locally, follow these steps:
 
-Bifoga även en databasdump (export) med lite innehåll så att projektet går att testa.
-Samt dokumentera användarnamn och lösenord för databasen.
+1. Clone this repository to your local machine.
+2. Navigate to the backend folder and install backend dependencies using `npm install`.
+3. Set up your MySQL database and configure the connection in `backend/lib/conn.js`.
+4. Run the backend server using `npm start`.
+5. Navigate to the frontend folder and open index.html with VS Code's extension Live Server.
+
+## Usage
+Once the application is running, you can:
+
+- Register and log in to your account.
+- Create, view, edit, and delete documents.
+- Utilize the WYSIWYG TinyMCE editor for rich text formatting.
+- Manage documents efficiently with a user-friendly interface.
+
+## Limitations
+
+**User Security and Request Validation:** The system currently lacks validation on requests, allowing users to access and modify documents by specifying their user ID in the request. Implementing request validation mechanisms will be essential to ensure that users can only interact with their own documents. This can be done with authentication token. 
+
+

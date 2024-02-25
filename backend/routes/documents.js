@@ -21,8 +21,6 @@ router.get("/", function (req, res) {
 router.post("/user/", function (req, res) {
   let userId = req.body.user;
   
-  // TODO: implement token
-  // let userToken = req.body.token;
   console.log("Getting specific documents for user", userId);
 
   // GET specific user

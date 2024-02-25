@@ -47,6 +47,7 @@ function printLoginForm() {
 
         if (data.id) {
           localStorage.setItem("user", data.id);
+          localStorage.setItem("userName", data.username);
           handleUserLoggedIn();
         } else {
           alert("Fel inlogg");
@@ -147,6 +148,10 @@ function handleUserLoggedOut() {
 function printLogoutBtn() {
   loginForm.innerHTML = "";
 
+  let loggedInUser = document.createElement("div");
+  loggedInUser.id = "loggedInUser";
+  loggedInUser.innerText = "Logged in as " + localStorage.getItem("userName");
+
   let logoutBtn = document.createElement("button");
   logoutBtn.id = "logoutBtn";
   logoutBtn.innerText = "Log out";
@@ -156,7 +161,7 @@ function printLogoutBtn() {
     handleUserLoggedOut();
   });
 
-  loginForm.appendChild(logoutBtn);
+  loginForm.append(loggedInUser, logoutBtn);
 };
 
 export {
