@@ -28,7 +28,8 @@ function printLoginForm() {
   signUpLink.id = "signUpLink";
   signUpLink.innerText = "Sign up now.";
 
-  loginBtn.addEventListener("click", () => {
+  loginBtn.addEventListener("click", (e) => {
+    e.preventDefault();
     let sendUser = {
       username: inputUsername.value,
       password: inputPassword.value,
@@ -89,7 +90,8 @@ function printSignUpFormAndCreateNewUserBtn() {
   createNewUserBtn.id = "createNewUserBtn";
   createNewUserBtn.innerText = "Create new user";
 
-  createNewUserBtn.addEventListener("click", () => {
+  createNewUserBtn.addEventListener("click", (e) => {
+    e.preventDefault();
     console.log("click click");
     let newUser = {
         name: inputName.value,
@@ -117,6 +119,7 @@ function createNewUser(newUser) {
     .then((data) => {
       console.log("response from server", data);
       localStorage.setItem("user", data.id);
+      localStorage.setItem("userName", data.username);
       handleUserLoggedIn();
     });
 };
