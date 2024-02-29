@@ -56,7 +56,8 @@ function editDoc(doc) {
   viewDoc.removeChild(deleteDocBtn);
   viewDoc.removeChild(editDocBtn);
 
-  saveChangesBtn.addEventListener("click", () => {
+  saveChangesBtn.addEventListener("click", (e) => {
+    e.preventDefault();
     console.log("edits saved");
 
     let sendUpdatedDoc = {

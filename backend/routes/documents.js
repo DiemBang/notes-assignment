@@ -23,7 +23,7 @@ router.post("/user/", function (req, res) {
   
   console.log("Getting specific documents for user", userId);
 
-  // GET specific user
+  
   connection.connect((err) => {
     if (err) console.log("err", err);
 
