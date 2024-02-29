@@ -1,6 +1,6 @@
 # Document Management System
 
-This project is a school assignment in the course API Development, aimed at implementing a comprehensive solution for managing documents.
+This project is a school assignment in the course API Development, aimed at implementing a simple solution for managing documents.
 
 ## Tech Stack
 - **Frontend:** HTML5, CSS, JavaScript
