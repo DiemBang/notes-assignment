@@ -13,7 +13,7 @@ The Document Management System allows users to create, edit, view, and delete do
 
 **Backend:** Built with Express.js, the backend handles API routes, database interactions, and user authentication. Documents are stored in a MySQL database.
 
-**Frontend:** The frontend interface, developed using HTML, CSS, and JavaScript, provides users with an intuitive platform to interact with the document management system. WYSIWYG TinyMCE editor is integrated for rich text editing capabilities.
+**Frontend:** The frontend interface, developed using HTML, CSS, and JavaScript, provides users with an intuitive platform to interact with the document management system. WYSIWYG TinyMCE editor is integrated for text editing capabilities.
 
 ## Project Structure
 
@@ -37,7 +37,7 @@ Once the application is running, you can:
 
 - Register and log in to your account.
 - Create, view, edit, and delete documents.
-- Utilize the WYSIWYG TinyMCE editor for rich text formatting.
+- Utilize the WYSIWYG TinyMCE editor for text formatting.
 - Manage documents efficiently with a user-friendly interface.
 
 ## Limitations
